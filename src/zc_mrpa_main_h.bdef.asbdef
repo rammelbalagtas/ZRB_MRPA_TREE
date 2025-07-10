@@ -1,0 +1,41 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for ZC_MRPA_MAIN_H alias Main
+{
+  use create;
+  use update;
+
+  use action Resume;
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Prepare;
+
+  use association _Material { with draft; }
+}
+
+define behavior for ZC_MRPA_OUTPUT_H alias Material
+{
+  use update;
+
+  use association _Main { with draft; }
+  use association _Data { with draft; }
+}
+
+define behavior for ZC_MRPA_DATA_H alias Data
+{
+  use update;
+
+  use association _Material { with draft; }
+  use association _MRP
+  {
+    with draft;
+    link action linkMRP;
+    unlink action unlinkMRP;
+  }
+  use association _Customer { with draft; }
+  use association _Main { with draft; }
+
+}

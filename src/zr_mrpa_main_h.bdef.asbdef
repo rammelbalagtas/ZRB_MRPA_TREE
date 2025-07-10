@@ -1,0 +1,131 @@
+managed;
+strict ( 2 );
+with draft;
+
+define behavior for ZR_MRPA_MAIN_H alias Main
+implementation in class zrb_bp_R_MRPA_MAIN_H_hd unique
+persistent table zmrpa_main_h
+early numbering
+draft table zmrpa_main_d_h
+lock master
+total etag LastChangedAt
+authorization master ( global )
+etag master LocalLastChangedAt
+{
+  create;
+  update;
+  internal delete;
+
+  field ( readonly ) Id;
+  association _Material { internal create; with draft; }
+
+  draft action Resume;
+  draft action Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft determine action Prepare;
+
+  mapping for zmrpa_main_h
+    {
+      Id                 = Id;
+      Material           = Material;
+      LocalCreatedBy     = local_created_by;
+      LocalCreatedAt     = local_created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+    }
+}
+
+define behavior for ZR_MRPA_OUTPUT_H alias Material
+implementation in class zrb_bp_R_MRPA_OUTPUT_H_hd unique
+early numbering
+persistent table zmrpa_output_h
+draft table zmrpa_output_d_h
+lock dependent by _Main
+authorization dependent by _Main
+etag master LocalLastChangedAt
+{
+
+  update;
+  internal delete;
+  field ( readonly ) Id, Material, OpenDelivery, BoQty, CurrentUNR, CurrentQA, CurrentBlock, CurrentAvailable;
+
+  association _Main { with draft; }
+  association _Data { internal create; with draft; }
+
+  mapping for zmrpa_output_h
+    {
+      Id                 = Id;
+      Material           = Material;
+      opendelivery       = opendelivery;
+      boqty              = boqty;
+      currentunr         = currentunr;
+      currentqa          = currentqa;
+      currentblock       = currentblock;
+      currentavailable   = currentavailable;
+      LocalCreatedBy     = local_created_by;
+      LocalCreatedAt     = local_created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+    }
+}
+
+define behavior for ZR_MRPA_DATA_H alias Data
+implementation in class zrb_bp_R_MRPA_Data_H_hd unique
+persistent table zmrpa_data_h
+draft table zmrpa_data_d_h
+lock dependent by _Main
+authorization dependent by _Main
+etag master LocalLastChangedAt
+{
+  update;
+  internal delete;
+  field ( readonly ) Id, Material, Mrplevel, ParentMRP, SiblingOrderNumber, OpenDelivery, BoQty, CurrentUNR, CurrentQA, CurrentBlock, CurrentAvailable;
+  association _Main { with draft; }
+  association _Material { with draft; }
+
+  association _MRP
+  {
+    with draft;
+    link action linkMRP;
+    unlink action unlinkMRP;
+  }
+
+  association _Customer { with draft; }
+
+  instance hierarchy ZI_MRPA_DataHN_H
+  {
+    managed reorder action changeNextSibling;
+    field ( hierarchy-index ) SiblingOrderNumber;
+    ascending association _MRP;
+    descending association _Customer { with cascading delete; }
+  }
+
+  determination onModifyOnHand on modify { create; field NewBlock, NewQA, NewUnr; }
+
+  mapping for zmrpa_data_h
+    {
+      Id                 = Id;
+      Material           = Material;
+      mrplevel           = mrplevel;
+      parentmrp          = parentmrp;
+      opendelivery       = opendelivery;
+      boqty              = boqty;
+      currentunr         = currentunr;
+      newunr             = newunr;
+      currentqa          = currentqa;
+      newqa              = newqa;
+      currentblock       = currentblock;
+      newblock           = newblock;
+      newavailable       = newavailable;
+      currentavailable   = currentavailable;
+      siblingordernumber = sibling_order_number;
+      LocalCreatedBy     = local_created_by;
+      LocalCreatedAt     = local_created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+    }
+}

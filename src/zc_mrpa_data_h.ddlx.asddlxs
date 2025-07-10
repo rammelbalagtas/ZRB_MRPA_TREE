@@ -1,0 +1,61 @@
+@Metadata.layer: #CORE
+annotate entity ZC_MRPA_DATA_H with
+{
+  @UI: {
+        lineItem:   [{ position: 10, label: 'Material/MRP/Customer' }]
+      }
+  Mrplevel;
+
+  @UI: {
+      lineItem:   [{ position: 20, label: 'Open Delivery', hidden: #(hideOpenDelivery)}]
+  }
+  Opendelivery;
+
+  @UI: {
+    lineItem:   [{ position: 30, label: 'Back Order', hidden: #(hideBOQty) }]
+  }
+  Boqty;
+
+  @UI: {
+    lineItem:   [{ position: 40, label: 'UNR (Current)', hidden: #(hideCurrentOnHand) }]
+  }
+  Currentunr;
+
+  @UI: {
+  lineItem:   [{ position: 50, label: 'UNR (New)', hidden: #(hideNewOnHand) }]
+  }
+  Newunr;
+
+
+  @UI: {
+  lineItem:   [{ position: 60, label: 'QA (Current)', hidden: #(hideCurrentOnHand) }]
+  }
+  Currentqa;
+
+  @UI: {
+  lineItem:   [{ position: 70, label: 'QA (New)', hidden: #(hideNewOnHand) }]
+  }
+  Newqa;
+
+  @UI: {
+  lineItem:   [{ position: 80, label: 'Block (Current)', hidden: #(hideCurrentOnHand) }]
+  }
+  Currentblock;
+
+  @UI: {
+  lineItem:   [{ position: 90, label: 'Block (New)', hidden: #(hideNewOnHand) }]
+  }
+  Newblock;
+
+  @UI: {
+  lineItem:   [{ position: 100, label: 'Available (Current)' }]
+  }
+  Currentavailable;
+
+  @UI: {
+  lineItem:   [{ position: 110, label: 'Available (New)', hidden: #(hideNewAvailable) }]
+  }
+  Newavailable;
+
+
+}

@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_MRPA_MAIN_H'
+define service ZSD_MRPA_MAIN_H {
+  expose ZC_MRPA_MAIN_H;
+  expose ZC_MRPA_OUTPUT_H;
+  expose ZC_MRPA_DATA_H;
+}

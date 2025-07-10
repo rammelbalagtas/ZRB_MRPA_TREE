@@ -1,0 +1,5 @@
+CLASS zrb_bp_r_mrpa_output_h_hd DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zr_mrpa_main_h.
+ENDCLASS.
+
+CLASS zrb_bp_r_mrpa_output_h_hd IMPLEMENTATION.
+ENDCLASS.

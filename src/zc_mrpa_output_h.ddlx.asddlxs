@@ -1,0 +1,114 @@
+@Metadata.layer: #CORE
+
+@UI:
+  {
+    headerInfo:
+      {
+        typeName: 'Result',
+        typeNamePlural: 'Result',
+        title: { type: #STANDARD, value: 'Material' }
+      }
+  }
+annotate entity ZC_MRPA_OUTPUT_H with
+{
+  @UI:
+     {
+       facet:
+         [
+//            {
+//              id:            'Material',
+//              purpose:       #STANDARD,
+//              type:          #COLLECTION,
+//              label:         'Material',
+//              position:      10
+//            },
+//            {
+//              id:              'General',
+//              targetQualifier: 'General',
+//              parentId:        'Material',
+//              purpose:         #STANDARD,
+//              type:            #FIELDGROUP_REFERENCE,
+//              label:           'General',
+//              position:        10
+//            },
+
+
+      //Fieldgroup in header section
+//      {
+//        type       : #FIELDGROUP_REFERENCE,
+//        targetQualifier: 'OrdersAndDelivery',
+//        label: 'Orders and Delivery',
+//        position: 10,
+//        purpose: #HEADER
+//      },
+//      
+//      {
+//        type       : #FIELDGROUP_REFERENCE,
+//        targetQualifier: 'OnHand',
+//        label: 'On Hand',
+//        position: 20,
+//        purpose: #HEADER
+//      },
+//      
+//      {
+//        type       : #FIELDGROUP_REFERENCE,
+//        targetQualifier: 'POQuantity',
+//        label: 'PO Quantity',
+//        position: 30,
+//        purpose: #HEADER
+//      },
+      
+        {
+          id:            'Data',
+          purpose:       #STANDARD,
+          type:          #LINEITEM_REFERENCE,
+          label:         'MRP Data',
+          position:      10,
+          targetElement: '_Data'
+        }
+          ]
+     }
+
+  @UI: {
+      lineItem:   [{ position: 10, label: 'Material' }],
+      fieldGroup: [{ position: 10, qualifier: 'General', label: 'Material' }]
+    }
+  Material;
+
+  @UI: {
+      lineItem:   [{ position: 20, label: 'Open Delivery' }],
+      fieldGroup: [{ position: 10, qualifier: 'OrdersAndDelivery', label: 'Open Delivery' }]
+    }
+  Opendelivery;
+
+  @UI: {
+    lineItem:   [{ position: 30, label: 'Back Order' }],
+    fieldGroup: [{ position: 20, qualifier: 'OrdersAndDelivery', label: 'Back Order' }]
+  }
+  Boqty;
+
+  @UI: {
+  lineItem:   [{ position: 40, label: 'UNR (Current)' }],
+  fieldGroup: [{ position: 10, qualifier: 'OnHand', label: 'Unrestricted' }]
+  }
+  Currentunr;
+  
+    @UI: {
+  lineItem:   [{ position: 50 , label: 'QA (Current)' }],
+  fieldGroup: [{ position: 20, qualifier: 'OnHand', label: 'QA' }]
+  }
+  Currentqa;
+  
+      @UI: {
+  lineItem:   [{ position: 60 , label: 'Block (Current)'}],
+  fieldGroup: [{ position: 30, qualifier: 'OnHand', label: 'Block' }]
+  }
+  Currentblock;
+  
+        @UI: {
+  lineItem:   [{ position: 70, label: 'Available (Current)' }],
+  fieldGroup: [{ position: 10, qualifier: 'POQuantity', label: 'Available' }]
+  }
+  Currentavailable;
+
+}

@@ -1,0 +1,44 @@
+@Metadata.layer: #CORE
+
+@UI: { headerInfo: {
+                     typeName: 'MRP Adjustment Run',
+                     typeNamePlural: 'MRP Adjustment Run',
+                     title: { type: #STANDARD, value: 'Id' }
+                    }
+     }
+
+annotate entity ZC_MRPA_MAIN_H with
+{
+  @UI.facet: [
+        {
+          id:              'Main',
+          purpose:         #STANDARD,
+          type:            #COLLECTION,
+          label:           'Parameters',
+          position:        10
+        },
+        {
+          id:              'Parameters',
+          targetQualifier: 'Parameters',
+          parentId:        'Main',
+          purpose:         #STANDARD,
+          type:            #FIELDGROUP_REFERENCE,
+          label:           'Parameters',
+          position:        10
+        },
+        {
+          id:            'Result',
+          purpose:       #STANDARD,
+          type:          #LINEITEM_REFERENCE,
+          label:         'Result',
+          position:      20,
+          targetElement: '_Material'
+        }
+      ]
+  @UI: { lineItem: [ { position: 10, importance: #HIGH, label: 'MRP Adjustment ID' } ] }
+  Id;
+
+  @UI: { fieldGroup: [ { position: 10, qualifier: 'Parameters', label: 'Material' } ] }
+  Material;
+
+}
