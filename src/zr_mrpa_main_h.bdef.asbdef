@@ -103,14 +103,13 @@ etag master LocalLastChangedAt
     descending association _Customer { with cascading delete; }
   }
 
-  determination onModifyOnHand on modify { field NewUNR; }
+  determination onModifyOnHand on modify { field NewUNR, NewQA, NewBlock; }
 
   side effects
   {
-    field NewUNR affects $self;
-//    field NewUNR affects field NewAvailable;
-    field NewQA affects $self;
-    field NewBlock affects $self;
+    field NewUNR affects entity _Material;
+    field NewQA affects entity _Material;
+    field NewBlock affects entity _Material;
   }
 
   mapping for zmrpa_data_h
