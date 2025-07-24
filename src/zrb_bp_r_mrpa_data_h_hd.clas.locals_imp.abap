@@ -22,39 +22,47 @@ CLASS lhc_Data IMPLEMENTATION.
     READ ENTITIES OF zr_mrpa_main_h IN LOCAL MODE
        ENTITY Data
        ALL FIELDS WITH CORRESPONDING #( keys )
-       RESULT DATA(lt_data).
+       RESULT DATA(lt_mrp).
 
-    LOOP AT lt_data INTO DATA(ls_data).
+    READ TABLE keys INTO DATA(ls_key) INDEX 1.
 
+    READ ENTITIES OF zr_mrpa_main_h IN LOCAL MODE
+     ENTITY Material
+     BY \_Data
+    ALL FIELDS WITH VALUE #( ( %key-id = ls_key-id
+                               %key-material = ls_key-Material ) )
+    RESULT DATA(lt_data)
+    FAILED DATA(lt_failed).
 
-    ENDLOOP.
+    READ TABLE lt_mrp INTO DATA(ls_mrp) INDEX 1.
+    DELETE lt_data WHERE parentmrp <> ls_mrp-Mrplevel.
 
-*    LOOP AT lt_outputl2 INTO DATA(ls_outputl2).
-*      lv_total = ls_outputl2-newunr + ls_outputl2-newqa + ls_outputl2-newblock.
-*      DATA(lv_count) = lines( lt_outputl3 ).
-*      lv_prorate = lv_total / lv_count.
-*      LOOP AT lt_outputl3 ASSIGNING FIELD-SYMBOL(<fs_outputl3>).
-*        IF sy-tabix < lv_count.
-*          <fs_outputl3>-newavailable = lv_prorate.
-*          lv_sum = lv_sum + lv_prorate.
-*        ELSE.
-*          <fs_outputl3>-newavailable = lv_total - lv_sum.
-*        ENDIF.
-*      ENDLOOP.
-*    ENDLOOP.
-*
-*    MODIFY ENTITIES OF zi_mrpapp IN LOCAL MODE
-*               ENTITY OutputL3
-*                 UPDATE
-*                   FIELDS ( NewAvailable )
-*                   WITH VALUE #( FOR outputl3 IN lt_outputl3
-*                                   ( %tky         = outputl3-%tky
-*                                     NewAvailable = outputl3-NewAvailable
-*                                     %control-NewAvailable = if_abap_behv=>mk-on ) )
-*               MAPPED DATA(upd_mapped)
-*               FAILED DATA(upd_failed)
-*               REPORTED DATA(upd_reported).
+    IF lt_data IS NOT INITIAL.
+      lv_total = ls_mrp-newunr + ls_mrp-newqa + ls_mrp-newblock.
+      DATA(lv_count) = lines( lt_data ).
+      lv_prorate = lv_total / lv_count.
+      LOOP AT lt_data ASSIGNING FIELD-SYMBOL(<fs_data>).
+        <fs_data>-%is_draft = '01'.
+        IF sy-tabix < lv_count.
+          <fs_data>-newavailable = lv_prorate.
+          lv_sum = lv_sum + lv_prorate.
+        ELSE.
+          <fs_data>-newavailable = lv_total - lv_sum.
+        ENDIF.
+      ENDLOOP.
+    ENDIF.
 
+    MODIFY ENTITIES OF zr_mrpa_main_h IN LOCAL MODE
+               ENTITY Data
+                 UPDATE
+                   FIELDS ( NewAvailable )
+                   WITH VALUE #( FOR ls_data IN lt_data
+                                   ( %tky = ls_data-%tky
+                                     NewAvailable = ls_data-NewAvailable
+                                     %control-NewAvailable = if_abap_behv=>mk-on ) )
+               MAPPED DATA(upd_mapped)
+               FAILED DATA(upd_failed)
+               REPORTED DATA(upd_reported).
 
   ENDMETHOD.
 
