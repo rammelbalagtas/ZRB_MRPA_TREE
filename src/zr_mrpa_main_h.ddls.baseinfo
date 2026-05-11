@@ -7,6 +7,8 @@
 ],
 "ASSOCIATED":
 [
+"ZI_MRPA_MATNRS",
+"ZI_MRPA_MRPS",
 "ZR_MRPA_OUTPUT_H"
 ],
 "BASE":

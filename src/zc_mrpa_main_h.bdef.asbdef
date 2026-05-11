@@ -15,6 +15,8 @@ define behavior for ZC_MRPA_MAIN_H alias Main
   use action Prepare;
 
   use association _Material { with draft; }
+  use association _MaterialInput { create; with draft; }
+  use association _MrpInput { create; with draft; }
 }
 
 define behavior for ZC_MRPA_OUTPUT_H alias Material
@@ -23,6 +25,18 @@ define behavior for ZC_MRPA_OUTPUT_H alias Material
 
   use association _Main { with draft; }
   use association _Data { with draft; }
+}
+
+define behavior for ZC_MRPA_MATNRS alias MaterialInput
+{
+  use update;
+  use association _Main { with draft; }
+}
+
+define behavior for ZC_MRPA_MRPS alias MrpInput
+{
+  use update;
+  use association _Main { with draft; }
 }
 
 define behavior for ZC_MRPA_DATA_H alias Data

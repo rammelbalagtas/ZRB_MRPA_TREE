@@ -14,5 +14,7 @@ define root view entity ZC_MRPA_MAIN_H
       LocalLastChangedAt,
       LastChangedAt,
       /* Associations */
+      _MaterialInput: redirected to composition child ZC_MRPA_MATNRS,
+      _MrpInput: redirected to composition child ZC_MRPA_MRPS,
       _Material : redirected to composition child ZC_MRPA_OUTPUT_H
 }

@@ -1,17 +1,17 @@
+@AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'MRP Data Main Table'
-define root view entity ZI_MRPA_MAIN_H
-  as select from zmrpa_main_h
-  composition [0..*] of ZI_MRPA_OUTPUT_H as _Material
+@EndUserText.label: 'Material multi-input'
+@Metadata.ignorePropagatedAnnotations: true
+define view entity ZI_MRPA_MATNRS
+  as select from zmrpa_matnrs
+  association to parent ZR_MRPA_MAIN_H as _Main on $projection.Id = _Main.Id
 {
   key id                    as Id,
-      plant                 as Plant,
-      region                as Region,
-      material              as Material,
+  key material              as Material,
       local_created_by      as LocalCreatedBy,
       local_created_at      as LocalCreatedAt,
       local_last_changed_by as LocalLastChangedBy,
       local_last_changed_at as LocalLastChangedAt,
       last_changed_at       as LastChangedAt,
-      _Material
+      _Main
 }

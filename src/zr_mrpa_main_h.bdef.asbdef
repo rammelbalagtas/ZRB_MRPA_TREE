@@ -18,6 +18,8 @@ etag master LocalLastChangedAt
 
   field ( readonly ) Id;
   association _Material { internal create; with draft; }
+  association _MaterialInput { create; with draft; }
+  association _MrpInput { create; with draft; }
 
   draft action Resume;
   draft action Edit;
@@ -28,6 +30,8 @@ etag master LocalLastChangedAt
   mapping for zmrpa_main_h
     {
       Id                 = Id;
+      Region             = Region;
+      Plant              = Plant;
       Material           = Material;
       LocalCreatedBy     = local_created_by;
       LocalCreatedAt     = local_created_at;
@@ -36,6 +40,63 @@ etag master LocalLastChangedAt
       LastChangedAt      = last_changed_at;
     }
 }
+
+define behavior for ZI_MRPA_MATNRS alias _MaterialInput
+implementation in class zrb_bp_R_MRPA_OUTPUT_H_hd unique
+//early numbering
+persistent table zmrpa_matnrs
+draft table zmrpa_matnrs_d
+lock dependent by _Main
+authorization dependent by _Main
+etag master LocalLastChangedAt
+{
+
+  update;
+  internal delete;
+  field ( readonly ) Id, Material;
+
+  association _Main { with draft; }
+
+  mapping for zmrpa_matnrs
+    {
+      Id                 = Id;
+      Material           = Material;
+      LocalCreatedBy     = local_created_by;
+      LocalCreatedAt     = local_created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+    }
+}
+
+define behavior for ZI_MRPA_MRPS alias _MrpInput
+implementation in class zrb_bp_R_MRPA_OUTPUT_H_hd unique
+//early numbering
+persistent table zmrpa_mrps
+draft table zmrpa_mrps_d
+lock dependent by _Main
+authorization dependent by _Main
+etag master LocalLastChangedAt
+{
+
+  update;
+  internal delete;
+  field ( readonly ) Id, Mrp;
+
+  association _Main { with draft; }
+
+  mapping for zmrpa_mrps
+    {
+      Id                 = Id;
+      Mrp                = Mrp;
+      LocalCreatedBy     = local_created_by;
+      LocalCreatedAt     = local_created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+    }
+}
+
 
 define behavior for ZR_MRPA_OUTPUT_H alias Material
 implementation in class zrb_bp_R_MRPA_OUTPUT_H_hd unique
