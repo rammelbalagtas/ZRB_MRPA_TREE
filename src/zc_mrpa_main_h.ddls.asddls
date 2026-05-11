@@ -2,6 +2,7 @@
 @EndUserText.label: 'ZC_MRPA_MAIN_H'
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
+
 define root view entity ZC_MRPA_MAIN_H
   provider contract transactional_query
   as projection on ZR_MRPA_MAIN_H

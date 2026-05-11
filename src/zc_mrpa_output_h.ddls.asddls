@@ -1,7 +1,7 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'ZC_MRPA_OUTPUT_H'
 @Metadata.ignorePropagatedAnnotations: true
-@Metadata.allowExtensions: true
+@Metadata.allowExtensions: true 
 define view entity ZC_MRPA_OUTPUT_H
   as projection on ZR_MRPA_OUTPUT_H
 {

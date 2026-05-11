@@ -25,18 +25,17 @@ CLASS zmrpa_tree_data_generator IMPLEMENTATION.
     DELETE FROM zmrpa_output_h.
     DELETE FROM zmrpa_data_h.
 
-*    RETURN.
+    DELETE FROM zmrpa_main_d_h.
+    DELETE FROM zmrpa_output_d_h.
+    DELETE FROM zmrpa_data_d_h.
+
+    RETURN.
 
     "main
     APPEND VALUE zmrpa_main_h(
 id = '20250101001'
 material = ''
 ) TO lt_main.
-
-
-
-
-
 
     "materials
     APPEND VALUE zmrpa_output_h(
@@ -52,7 +51,7 @@ currentavailable = '300'
 
     "mrp/customer
 
-"MRP1
+    "MRP1
 
     APPEND VALUE zmrpa_data_h(
 id = '20250101001'
@@ -128,26 +127,26 @@ sibling_order_number = '002'
 ) TO lt_data.
 
 
-"MRP 2
-   APPEND VALUE zmrpa_data_h(
-id = '20250101001'
-material = 'KXTGD390A'
-mrplevel   =  'NSRSE'
-parentmrp = 'KXTGD390A'
-opendelivery = '20'
-boqty    = '0'
-currentunr   = '100'
-currentqa    = '20'
-currentblock    =  '0'
-currentavailable = '100'
-newunr   = ''
-newqa  = ''
-newblock = ''
-newavailable = ''
-sibling_order_number = '002'
-) TO lt_data.
+    "MRP 2
+    APPEND VALUE zmrpa_data_h(
+ id = '20250101001'
+ material = 'KXTGD390A'
+ mrplevel   =  'NSRSE'
+ parentmrp = 'KXTGD390A'
+ opendelivery = '20'
+ boqty    = '0'
+ currentunr   = '100'
+ currentqa    = '20'
+ currentblock    =  '0'
+ currentavailable = '100'
+ newunr   = ''
+ newqa  = ''
+ newblock = ''
+ newavailable = ''
+ sibling_order_number = '002'
+ ) TO lt_data.
 
-"MRP 3
+    "MRP 3
     APPEND VALUE zmrpa_data_h(
 id = '20250101001'
 material = 'KXTGD390A'
@@ -235,7 +234,7 @@ newavailable = ''
 sibling_order_number = '000'
 ) TO lt_data.
 
-"MRP1
+    "MRP1
     APPEND VALUE zmrpa_data_h(
 id = '20250101001'
 material = 'KXTGD390B'
@@ -291,26 +290,26 @@ sibling_order_number = '002'
 ) TO lt_data.
 
 
-"MRP 2
-   APPEND VALUE zmrpa_data_h(
-id = '20250101001'
-material = 'KXTGD390B'
-mrplevel   =  'NSRSE'
-parentmrp = 'KXTGD390B'
-opendelivery = '20'
-boqty    = '0'
-currentunr   = '100'
-currentqa    = '20'
-currentblock    =  '0'
-currentavailable = '100'
-newunr   = ''
-newqa  = ''
-newblock = ''
-newavailable = ''
-sibling_order_number = '002'
-) TO lt_data.
+    "MRP 2
+    APPEND VALUE zmrpa_data_h(
+ id = '20250101001'
+ material = 'KXTGD390B'
+ mrplevel   =  'NSRSE'
+ parentmrp = 'KXTGD390B'
+ opendelivery = '20'
+ boqty    = '0'
+ currentunr   = '100'
+ currentqa    = '20'
+ currentblock    =  '0'
+ currentavailable = '100'
+ newunr   = ''
+ newqa  = ''
+ newblock = ''
+ newavailable = ''
+ sibling_order_number = '002'
+ ) TO lt_data.
 
-"MRP 3
+    "MRP 3
     APPEND VALUE zmrpa_data_h(
 id = '20250101001'
 material = 'KXTGD390B'
@@ -398,7 +397,7 @@ newavailable = ''
 sibling_order_number = '000'
 ) TO lt_data.
 
-"MRP1
+    "MRP1
     APPEND VALUE zmrpa_data_h(
 id = '20250101001'
 material = 'KXTGD390C'
@@ -454,26 +453,26 @@ sibling_order_number = '002'
 ) TO lt_data.
 
 
-"MRP 2
-   APPEND VALUE zmrpa_data_h(
-id = '20250101001'
-material = 'KXTGD390C'
-mrplevel   =  'NSRSE'
-parentmrp = 'KXTGD390C'
-opendelivery = '20'
-boqty    = '0'
-currentunr   = '100'
-currentqa    = '20'
-currentblock    =  '0'
-currentavailable = '100'
-newunr   = ''
-newqa  = ''
-newblock = ''
-newavailable = ''
-sibling_order_number = '002'
-) TO lt_data.
+    "MRP 2
+    APPEND VALUE zmrpa_data_h(
+ id = '20250101001'
+ material = 'KXTGD390C'
+ mrplevel   =  'NSRSE'
+ parentmrp = 'KXTGD390C'
+ opendelivery = '20'
+ boqty    = '0'
+ currentunr   = '100'
+ currentqa    = '20'
+ currentblock    =  '0'
+ currentavailable = '100'
+ newunr   = ''
+ newqa  = ''
+ newblock = ''
+ newavailable = ''
+ sibling_order_number = '002'
+ ) TO lt_data.
 
-"MRP 3
+    "MRP 3
     APPEND VALUE zmrpa_data_h(
 id = '20250101001'
 material = 'KXTGD390C'

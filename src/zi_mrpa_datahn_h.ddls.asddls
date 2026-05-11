@@ -1,5 +1,5 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'Hierarchy Node: Data'
+@EndUserText.label: 'Hierarchy Node: Data' 
 define hierarchy ZI_MRPA_DataHN_H
   with parameters
     p_id       : abap.numc(11),

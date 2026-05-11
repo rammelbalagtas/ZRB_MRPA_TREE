@@ -1,7 +1,7 @@
 @AbapCatalog.viewEnhancementCategory: [#NONE]
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 @EndUserText.label: 'ZR_MRPA_DATA_H'
-define view entity ZR_MRPA_DATA_H
+define view entity ZR_MRPA_DATA_H 
   as select from ZI_MRPA_DATA_H
   association         to parent ZR_MRPA_OUTPUT_H     as _Material on  $projection.Id       = _Material.Id
                                                                and $projection.Material = _Material.Material

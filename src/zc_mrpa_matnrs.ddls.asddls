@@ -2,6 +2,7 @@
 @EndUserText.label: 'Material Input'
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
+
 define view entity ZC_MRPA_MATNRS
   as projection on ZI_MRPA_MATNRS
 {

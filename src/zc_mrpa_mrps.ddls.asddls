@@ -2,6 +2,7 @@
 @EndUserText.label: 'MRP Input'
 @Metadata.ignorePropagatedAnnotations: true
 @Metadata.allowExtensions: true
+
 define view entity ZC_MRPA_MRPS
   as projection on ZI_MRPA_MRPS
 {

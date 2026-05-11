@@ -1,5 +1,5 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
-@EndUserText.label: 'ZR_MRPA_MAIN_H'
+@EndUserText.label: 'ZR_MRPA_MAIN_H' 
 @Metadata.ignorePropagatedAnnotations: true
 define root view entity ZR_MRPA_MAIN_H
   as select from ZI_MRPA_MAIN_H
