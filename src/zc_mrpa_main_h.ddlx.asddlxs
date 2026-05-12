@@ -17,12 +17,19 @@ annotate entity ZC_MRPA_MAIN_H with
           label:           'Parameters',
           position:        10
         },
+//        {
+//          id:              'Parameters',
+//          targetQualifier: 'Parameters',
+//          parentId:        'Main',
+//          purpose:         #STANDARD,
+//          type:            #FIELDGROUP_REFERENCE,
+//          label:           'Parameters',
+//          position:        10
+//        },
         {
           id:              'Parameters',
-          targetQualifier: 'Parameters',
-          parentId:        'Main',
           purpose:         #STANDARD,
-          type:            #FIELDGROUP_REFERENCE,
+          type:            #IDENTIFICATION_REFERENCE,
           label:           'Parameters',
           position:        10
         },
@@ -38,7 +45,29 @@ annotate entity ZC_MRPA_MAIN_H with
   @UI: { lineItem: [ { position: 10, importance: #HIGH, label: 'MRP Adjustment ID' } ] }
   Id;
 
-  @UI: { fieldGroup: [ { position: 10, qualifier: 'Parameters', label: 'Material' } ] }
-  Material;
+//  @UI: { fieldGroup: [ { position: 20, qualifier: 'Parameters', label: 'Plant'} ] }
+//  Plant;
+//
+//  @UI: { fieldGroup: [ { position: 30, qualifier: 'Parameters', label: 'Material', value: '_MaterialInput.Material'} ] }
+//  _MaterialInput;
+//
+//  @UI: { fieldGroup: [ { position: 40, qualifier: 'Parameters', label: 'MRP', value: '_MrpInput.Mrp'} ] }
+//  _MrpInput;
+//
+//  @UI: { fieldGroup: [ { position: 50, qualifier: 'Parameters', label: 'Region', value: 'Region'} ] }
+//  Region;
+
+  @UI: { identification: [ { position: 10, label: 'Plant'} ] }
+  Plant;
+
+  @UI: { identification: [ { position: 20, label: 'Material', value: '_MaterialInput.Material'} ] }
+  _MaterialInput;
+
+  @UI: { identification: [ { position: 30, label: 'MRP', value: '_MrpInput.Mrp'} ] }
+  _MrpInput;
+
+  @UI: { identification: [ { position: 40, label: 'Region', value: 'Region'} ] }
+  Region;
+
 
 }

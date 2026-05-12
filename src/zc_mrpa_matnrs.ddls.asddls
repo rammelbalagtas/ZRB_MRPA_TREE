@@ -7,7 +7,8 @@ define view entity ZC_MRPA_MATNRS
   as projection on ZI_MRPA_MATNRS
 {
   key Id,
-  key Material,
+      ParentId,
+      Material,
       LocalCreatedBy,
       LocalCreatedAt,
       LocalLastChangedBy,

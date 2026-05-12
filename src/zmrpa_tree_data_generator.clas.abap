@@ -29,17 +29,16 @@ CLASS zmrpa_tree_data_generator IMPLEMENTATION.
     DELETE FROM zmrpa_output_d_h.
     DELETE FROM zmrpa_data_d_h.
 
-    RETURN.
 
     "main
     APPEND VALUE zmrpa_main_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = ''
 ) TO lt_main.
 
     "materials
     APPEND VALUE zmrpa_output_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390A'
 opendelivery = '60'
 boqty    = '0'
@@ -54,7 +53,7 @@ currentavailable = '300'
     "MRP1
 
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390A'
 mrplevel   =  'KXTGD390A'
 parentmrp = ''
@@ -73,7 +72,7 @@ sibling_order_number = '000'
 
 
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390A'
 mrplevel   =  'NSRST'
 parentmrp = 'KXTGD390A'
@@ -91,7 +90,7 @@ sibling_order_number = '001'
 ) TO lt_data.
 
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390A'
 mrplevel   =  '12185'
 parentmrp = 'NSRST'
@@ -109,7 +108,7 @@ sibling_order_number = '001'
 ) TO lt_data.
 
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390A'
 mrplevel   =  '12186'
 parentmrp = 'NSRST'
@@ -129,7 +128,7 @@ sibling_order_number = '002'
 
     "MRP 2
     APPEND VALUE zmrpa_data_h(
- id = '20250101001'
+ id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
  material = 'KXTGD390A'
  mrplevel   =  'NSRSE'
  parentmrp = 'KXTGD390A'
@@ -148,7 +147,7 @@ sibling_order_number = '002'
 
     "MRP 3
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390A'
 mrplevel   =  'PAMZT1'
 parentmrp = 'KXTGD390A'
@@ -166,7 +165,7 @@ sibling_order_number = '003'
 ) TO lt_data.
 
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390A'
 mrplevel   =  '12358'
 parentmrp = 'PAMZT1'
@@ -184,7 +183,7 @@ sibling_order_number = '001'
 ) TO lt_data.
 
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390A'
 mrplevel   =  '12356'
 parentmrp = 'PAMZT1'
@@ -204,7 +203,7 @@ sibling_order_number = '002'
 
     "materials
     APPEND VALUE zmrpa_output_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390B'
 opendelivery = '60'
 boqty    = '0'
@@ -217,7 +216,7 @@ currentavailable = '300'
     "mrp/customer
 
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390B'
 mrplevel   =  'KXTGD390B'
 parentmrp = ''
@@ -236,7 +235,7 @@ sibling_order_number = '000'
 
     "MRP1
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390B'
 mrplevel   =  'NSRST'
 parentmrp = 'KXTGD390B'
@@ -254,7 +253,7 @@ sibling_order_number = '001'
 ) TO lt_data.
 
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390B'
 mrplevel   =  '12185'
 parentmrp = 'NSRST'
@@ -272,7 +271,7 @@ sibling_order_number = '001'
 ) TO lt_data.
 
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390B'
 mrplevel   =  '12186'
 parentmrp = 'NSRST'
@@ -292,7 +291,7 @@ sibling_order_number = '002'
 
     "MRP 2
     APPEND VALUE zmrpa_data_h(
- id = '20250101001'
+ id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
  material = 'KXTGD390B'
  mrplevel   =  'NSRSE'
  parentmrp = 'KXTGD390B'
@@ -311,7 +310,7 @@ sibling_order_number = '002'
 
     "MRP 3
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390B'
 mrplevel   =  'PAMZT1'
 parentmrp = 'KXTGD390B'
@@ -329,7 +328,7 @@ sibling_order_number = '003'
 ) TO lt_data.
 
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390B'
 mrplevel   =  '12358'
 parentmrp = 'PAMZT1'
@@ -347,7 +346,7 @@ sibling_order_number = '001'
 ) TO lt_data.
 
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390B'
 mrplevel   =  '12356'
 parentmrp = 'PAMZT1'
@@ -367,7 +366,7 @@ sibling_order_number = '002'
 
     "materials
     APPEND VALUE zmrpa_output_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390C'
 opendelivery = '60'
 boqty    = '0'
@@ -380,7 +379,7 @@ currentavailable = '300'
     "mrp/customer
 
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390C'
 mrplevel   =  'KXTGD390C'
 parentmrp = ''
@@ -399,7 +398,7 @@ sibling_order_number = '000'
 
     "MRP1
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390C'
 mrplevel   =  'NSRST'
 parentmrp = 'KXTGD390C'
@@ -417,7 +416,7 @@ sibling_order_number = '001'
 ) TO lt_data.
 
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390C'
 mrplevel   =  '12185'
 parentmrp = 'NSRST'
@@ -435,7 +434,7 @@ sibling_order_number = '001'
 ) TO lt_data.
 
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390C'
 mrplevel   =  '12186'
 parentmrp = 'NSRST'
@@ -455,7 +454,7 @@ sibling_order_number = '002'
 
     "MRP 2
     APPEND VALUE zmrpa_data_h(
- id = '20250101001'
+ id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
  material = 'KXTGD390C'
  mrplevel   =  'NSRSE'
  parentmrp = 'KXTGD390C'
@@ -474,7 +473,7 @@ sibling_order_number = '002'
 
     "MRP 3
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390C'
 mrplevel   =  'PAMZT1'
 parentmrp = 'KXTGD390C'
@@ -492,7 +491,7 @@ sibling_order_number = '003'
 ) TO lt_data.
 
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390C'
 mrplevel   =  '12358'
 parentmrp = 'PAMZT1'
@@ -510,7 +509,7 @@ sibling_order_number = '001'
 ) TO lt_data.
 
     APPEND VALUE zmrpa_data_h(
-id = '20250101001'
+id = '421e5766-4462-1fd1-93c1-3a1dfd055641'
 material = 'KXTGD390C'
 mrplevel   =  '12356'
 parentmrp = 'PAMZT1'

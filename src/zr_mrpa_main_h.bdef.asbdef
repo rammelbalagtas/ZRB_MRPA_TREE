@@ -5,7 +5,6 @@ with draft;
 define behavior for ZR_MRPA_MAIN_H alias Main
 implementation in class zrb_bp_R_MRPA_MAIN_H_hd unique
 persistent table zmrpa_main_h
-early numbering
 draft table zmrpa_main_d_h
 lock master
 total etag LastChangedAt
@@ -16,7 +15,7 @@ etag master LocalLastChangedAt
   update;
   internal delete;
 
-  field ( readonly ) Id;
+  field ( numbering : managed, readonly ) Id;
   association _Material { internal create; with draft; }
   association _MaterialInput { create; with draft; }
   association _MrpInput { create; with draft; }
@@ -42,7 +41,7 @@ etag master LocalLastChangedAt
 }
 
 define behavior for ZI_MRPA_MATNRS alias _MaterialInput
-implementation in class zrb_bp_R_MRPA_OUTPUT_H_hd unique
+implementation in class zrb_bp_R_MRPA_MAIN_H_hd unique
 //early numbering
 persistent table zmrpa_matnrs
 draft table zmrpa_matnrs_d
@@ -53,13 +52,15 @@ etag master LocalLastChangedAt
 
   update;
   internal delete;
-  field ( readonly ) Id, Material;
+  field ( numbering : managed, readonly ) Id;
+  field ( readonly:update ) ParentId;
 
   association _Main { with draft; }
 
   mapping for zmrpa_matnrs
     {
       Id                 = Id;
+      ParentId          = ParentId;
       Material           = Material;
       LocalCreatedBy     = local_created_by;
       LocalCreatedAt     = local_created_at;
@@ -70,7 +71,7 @@ etag master LocalLastChangedAt
 }
 
 define behavior for ZI_MRPA_MRPS alias _MrpInput
-implementation in class zrb_bp_R_MRPA_OUTPUT_H_hd unique
+implementation in class zrb_bp_R_MRPA_MAIN_H_hd unique
 //early numbering
 persistent table zmrpa_mrps
 draft table zmrpa_mrps_d
@@ -81,13 +82,15 @@ etag master LocalLastChangedAt
 
   update;
   internal delete;
-  field ( readonly ) Id, Mrp;
+  field ( numbering : managed, readonly ) Id;
+  field ( readonly:update ) ParentId;
 
   association _Main { with draft; }
 
   mapping for zmrpa_mrps
     {
       Id                 = Id;
+      ParentId           = ParentId;
       Mrp                = Mrp;
       LocalCreatedBy     = local_created_by;
       LocalCreatedAt     = local_created_at;
@@ -100,7 +103,6 @@ etag master LocalLastChangedAt
 
 define behavior for ZR_MRPA_OUTPUT_H alias Material
 implementation in class zrb_bp_R_MRPA_OUTPUT_H_hd unique
-early numbering
 persistent table zmrpa_output_h
 draft table zmrpa_output_d_h
 lock dependent by _Main

@@ -4,10 +4,11 @@
 @Metadata.ignorePropagatedAnnotations: true
 define view entity ZI_MRPA_MRPS
   as select from zmrpa_mrps
-  association to parent ZR_MRPA_MAIN_H as _Main on $projection.Id = _Main.Id
+  association to parent ZR_MRPA_MAIN_H as _Main on $projection.ParentId = _Main.Id
 {
   key id                    as Id,
-  key mrp                   as Mrp,
+      parentid              as ParentId,
+      mrp                   as Mrp,
       local_created_by      as LocalCreatedBy,
       local_created_at      as LocalCreatedAt,
       local_last_changed_by as LocalLastChangedBy,

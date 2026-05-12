@@ -9,6 +9,8 @@ define root view entity ZC_MRPA_MAIN_H
 {
   key Id,
       Material,
+      Plant,
+      Region,
       LocalCreatedBy,
       LocalCreatedAt,
       LocalLastChangedBy,

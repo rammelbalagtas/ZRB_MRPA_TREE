@@ -7,7 +7,8 @@ define view entity ZC_MRPA_MRPS
   as projection on ZI_MRPA_MRPS
 {
   key Id,
-  key Mrp,
+  ParentId,
+  Mrp,
       LocalCreatedBy,
       LocalCreatedAt,
       LocalLastChangedBy,

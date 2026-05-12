@@ -6,7 +6,9 @@
 "ZMRPA_MAIN_H"
 ],
 "ASSOCIATED":
-[],
+[
+"ZI_MRPA_OUTPUT_H"
+],
 "BASE":
 [],
 "ANNO_REF":
